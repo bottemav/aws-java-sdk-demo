@@ -6,6 +6,7 @@ import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.RunInstancesRequest;
 import com.amazonaws.services.ec2.model.RunInstancesResult;
 import com.amazonaws.services.ec2.model.SecurityGroup;
+import net.persgroep.aws.cda.model.ProvisionEC2InstanceCommand;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,9 +38,9 @@ public class Ec2Controller {
     }
 
     @PostMapping("/instance")
-    public RunInstancesResult provisionEC2Instance() {
+    public RunInstancesResult provisionEC2Instance(ProvisionEC2InstanceCommand provisionEC2InstanceCommand) {
         RunInstancesRequest request = new RunInstancesRequest("ami-af0fc0c0", 1, 1);
-        request.setSecurityGroupIds(Collections.singletonList("sg-b95786d2"));
+        request.setSecurityGroupIds(Collections.singletonList(provisionEC2InstanceCommand.getSecurityGroupIds()));
        return amazonEC2Client.runInstances(request);
     }
 }
