@@ -10,9 +10,14 @@ import org.springframework.context.annotation.Configuration;
 public class AwsConfig {
 
     @Bean
-    public AmazonEC2 amazonEC2Client() {
+    public AmazonEC2 amazonEC2ClientFrankfurt() {
         return AmazonEC2ClientBuilder.standard()
                 .withRegion(Regions.EU_CENTRAL_1)
                 .build();
+    }
+
+    @Bean
+    public AmazonEC2 amazonEC2ClientDefaultRegion() {
+        return AmazonEC2ClientBuilder.defaultClient();
     }
 }
