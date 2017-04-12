@@ -23,7 +23,7 @@ $ ./gradlew service:bootRun
 * GET http://localhost:8080/rest/ec2/frankfurt/availabilityZones
     * Lists all availability zones in Frankfurt (eu-central-1)
 * POST http://localhost:8080/rest/ec2/frankfurt/instance
-    * Provision a new instance in Frankfurt (eu-central-1) based on the AMI ami-af0fc0c0 (t2.small) and with the security specified in the request body.
+    * Provision a new instance in Frankfurt (eu-central-1) based on the AMI ami-5b06d634 (t2.micro) and with the security group specified in the request body.
     * Request body: `{"securityGroupsIds" : "sg-b1234567"}`
 * GET http://localhost:8080/rest/ec2/defaultRegion/availabilityZones
     * Lists all availability zones in the default region. See [Automatically Determine the AWS Region from the Environment](http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#automatically-determine-the-aws-region-from-the-environment)

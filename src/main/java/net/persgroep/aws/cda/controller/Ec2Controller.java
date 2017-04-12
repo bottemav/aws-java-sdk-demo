@@ -47,7 +47,7 @@ public class Ec2Controller {
 
     @PostMapping("/frankfurt/instance")
     public RunInstancesResult provisionEC2Instance(ProvisionEC2InstanceCommand provisionEC2InstanceCommand) {
-        RunInstancesRequest request = new RunInstancesRequest("ami-af0fc0c0", 1, 1);
+        RunInstancesRequest request = new RunInstancesRequest("ami-5b06d634", 1, 1);
         request.setSecurityGroupIds(Collections.singletonList(provisionEC2InstanceCommand.getSecurityGroupIds()));
        return amazonEC2ClientFrankfurt.runInstances(request);
     }
